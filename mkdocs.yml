@@ -9,10 +9,13 @@ theme:
         primary: red
     features:
     - navigation.footer
+    - navigation.top
 
 nav:
     - Home: index.md
-    - MCM: about.md
+    - MCM: 
+        - Intro to MCM: MCM-intro.md
+        - Creating MCM menu items: MCM-2.md
 
 extra_css:
     - extra.css
