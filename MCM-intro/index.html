@@ -14,12 +14,14 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../MCM-2/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
-        <title>MCM - Stalker Anomaly Modding</title>
+        <title>Intro to MCM - Stalker Anomaly Modding</title>
       
     
     
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MCM
+              Intro to MCM
             
           </span>
         </div>
@@ -208,6 +210,35 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          MCM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          MCM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -216,48 +247,31 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          MCM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        MCM
+        Intro to MCM
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../MCM-2/" class="md-nav__link">
+        Creating MCM menu items
+      </a>
+    </li>
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -282,28 +296,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -318,21 +310,18 @@
 
 
 <h1 id="mod-configuration-menu">Mod Configuration Menu</h1>
-<p>Also known as MCM. This mod lets you expose settings/variables in your scripts to the players via a convenient menu accessible from within the game's pause menu. The settings are saved, and will persist after closing and re-opening the game.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<p>And then, your nan</p>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<p>Also known as MCM. It lets you expose settings/variables in your scripts to players via a convenient menu accessible from within the game's pause menu. The settings are saved, and will persist after closing and re-opening the game.</p>
+<p>There are various methods you can use to allow the game to interact with your settings, such as sliders, keybinds, and checkboxes. You can currently find the list on <a href="https://github.com/RAX-Anomaly/Anomaly-Mod-Configuration-Menu">this</a> page, under the <strong>How to add new sections</strong> part, where it says <strong>Critical Parameters</strong>. At the time of writing, the following are available:</p>
+<pre><code>"check"         : Option, check box, either ON or OFF
+"list"          : Option, list of strings, useful for options with too many selections
+"input"         : Option, input box, you can type a value of your choice
+"radio_h"       : Option, radio box, select one out of many choices. Can fit up to 8 selections (Horizental layout)
+"radio_v"       : Option, radio box, select one out of many choices. Can fit up any number of selections (Vertical layout)
+"track"         : Option, track bar, easy way to control numric options with min/max values (can be used only if [val] = 2)
+"key_bind"      : Option, button that registers a keypress after being clicked. (See suplimental instructions below)
 </code></pre>
+<p>This guide will demonstrate the basics of creating an MCM menu for an original mod. This consists mainly of 2 tasks: creating your mod's MCM menu, and hooking up your MCM menu options to your mod's code.</p>
+<p>We'll begin by looking at an example mod, and then thinking about how we can configure its key variables to read in settings from a menu option.</p>
 
 
 
@@ -344,6 +333,11 @@ docs/
           
           
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
         
       </main>
       
@@ -368,6 +362,21 @@ docs/
             </div>
           </a>
         
+        
+          
+          <a href="../MCM-2/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating MCM menu items" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Creating MCM menu items
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
@@ -409,7 +418,7 @@ docs/
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.top"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
